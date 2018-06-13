@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-11">
+    <h2>Ticket Details</h2>
+  </div>
+  <div class="col-1">
+      <a href="#" onclick="javascript:localStorage.removeItem('userlogin')">Logout</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm card">
+    Ticket Id
+  </div>
+  <div class="col-sm card">
+    {{ticket._id}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm card">
+    Subject
+  </div>
+  <div class="col-sm card">
+    {{ticket.subject}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm card">
+    Details
+  </div>
+  <div class="col-sm card">
+    {{ticket.details}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm card">
+    Status
+  </div>
+  <div class="col-sm card">
+    {{ticket.status}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm card">
+    Priority
+  </div>
+  <div class="col-sm card">
+    {{ticket.priority}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm card">
+    Creation Date
+  </div>
+  <div class="col-sm card">
+    {{ticket.creationDate | date : 'short'}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm card">
+    Last Update Date
+  </div>
+  <div class="col-sm card">
+    {{ticket.lastUpdateDate | date : 'short'}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm card">
+    <h4>Updates</h4>
+  </div>
+</div>
+<div *ngFor="let update of ticket.updates" class="row">
+  <div class="col-sm card">
+    {{update.modifiedUser}}
+  </div>
+  <div class="col-sm card">
+    {{update.modifiedDate | date : 'short'}}
+  </div>
+  <div class="col-sm card">
+    {{update.details}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm">
+    &nbsp;
+  </div>
+</div>
+<button class="btn btn-primary float-right" type="button" routerLink="/viewtickets">
+  Back
+</button>

@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-11">
+    <h2>User Tickets</h2>
+  </div>
+  <div class="col-1">
+      <a href="#" onclick="javascript:localStorage.removeItem('userlogin')">Logout</a>
+  </div>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Ticket Id</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Status</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Details</th>
+      <th scope="col">Creation Date</th>
+      <th scope="col">Last Update Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let ticket of tickets">
+      <td scope="col">{{ticket._id}}</td>
+      <td scope="col">{{ticket.subject}}</td>
+      <td scope="col">{{ticket.status}}</td>
+      <td scope="col">{{ticket.priority}}</td>
+      <td scope="col">{{ticket.details}}</td>
+      <td scope="col">{{ticket.creationDate | date :'short'}}</td>
+      <td scope="col">{{ticket.lastUpdateDate | date :'short'}}</td>
+      <td scope="col">
+        <a [routerLink]="['/viewticketdetails', ticket._id]">
+          <img src="/assets/icons/view-details.ico" />
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button class="btn btn-primary float-right" type="button" routerLink='/createticket'>
+  Create Ticket
+</button>

@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-11">
+    <h2>Create Ticket</h2>
+  </div>
+  <div class="col-1">
+      <a href="#" onclick="javascript:localStorage.removeItem('userlogin')">Logout</a>
+  </div>
+</div>
+<form>
+  <div class="form-group">
+    <label for="Subject">Subject</label>
+    <input type="text" class="form-control" name="subject" [(ngModel)]="ticket.subject">
+  </div>
+  <div class="form-group">
+    <label for="Details">Details</label>
+    <input type="text" class="form-control" name="details" [(ngModel)]="ticket.details">
+  </div>
+  <div class="form-group">
+    <label for="Unit">Unit</label>
+    <select class="form-control">
+      <option *ngFor="let unit of units" value={{unit._id}}>
+        {{unit.name}}
+      </option>
+    </select>
+  </div>
+  <button class="btn btn-primary float-right" type="button" (click)="createTicket()">
+    Save Ticket
+  </button>
